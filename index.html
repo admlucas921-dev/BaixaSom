@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090b12">
+  <meta name="description" content="BaixaSom — painel para organizar downloads de áudio autorizado.">
+  <title>BaixaSom — Painel de downloads</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="BaixaSom"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Baixa<span>Som</span></span></a>
+    <button class="icon-button" id="themeToggle" aria-label="Alternar tema"><svg viewBox="0 0 24 24"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4m0-12.8L17 7M7 17l-1.4 1.4M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg></button>
+  </header>
+  <main class="shell">
+    <section class="intro">
+      <span class="eyebrow"><span></span> SEU ÁUDIO, DO SEU JEITO</span>
+      <h1>Baixe. Ouça.<br><em>Leve com você.</em></h1>
+      <p>Cole o link de um áudio que você tem autorização para baixar e prepare o arquivo em poucos passos.</p>
+    </section>
+    <section class="download-card" aria-labelledby="downloadTitle">
+      <div class="card-heading"><div><span class="step">01</span><h2 id="downloadTitle">Cole o link do áudio</h2></div><span class="secure"><span></span> Processamento seguro</span></div>
+      <form id="downloadForm">
+        <label class="url-field">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7L11.8 5.2M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+          <input id="audioUrl" type="url" required autocomplete="url" placeholder="https://exemplo.com/seu-audio" aria-describedby="urlHelp">
+          <button type="button" id="pasteButton">Colar</button>
+        </label>
+        <p class="field-help" id="urlHelp">Use somente conteúdo próprio, licenciado ou em domínio público.</p>
+        <div class="options-grid">
+          <label>Formato<select id="format"><option>MP3</option><option>M4A</option><option>WAV</option></select></label>
+          <label>Qualidade<select id="quality"><option>Alta · 320 kbps</option><option>Média · 192 kbps</option><option>Leve · 128 kbps</option></select></label>
+          <button class="primary-button" type="submit"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 21h14"/></svg>Preparar download</button>
+        </div>
+      </form>
+      <div class="status-panel" id="statusPanel" hidden aria-live="polite">
+        <div class="status-line"><span id="statusText">Analisando o link…</span><strong id="statusPercent">0%</strong></div>
+        <div class="progress-track"><span id="progressBar"></span></div>
+      </div>
+    </section>
+    <section class="history" aria-labelledby="historyTitle">
+      <div class="section-title"><div><span class="step">02</span><h2 id="historyTitle">Downloads recentes</h2></div><button class="text-button" id="clearHistory">Limpar histórico</button></div>
+      <div id="historyList" class="history-list"></div>
+      <div id="emptyState" class="empty-state">
+        <span class="empty-icon"><svg viewBox="0 0 24 24"><path d="M9 18V5l10-2v13M9 9l10-2M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm10-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg></span>
+        <h3>Nenhum download por aqui</h3><p>Seus arquivos preparados aparecerão nesta área.</p>
+      </div>
+    </section>
+  </main>
+  <footer><span>© 2026 BaixaSom</span><span>Baixe apenas conteúdos que você pode usar legalmente.</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body></html>
