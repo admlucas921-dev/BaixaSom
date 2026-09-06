@@ -1,4 +1,4 @@
-const JAMENDO_CLIENT_ID='709fa152';
+const JAMENDO_CLIENT_ID='d417490e';
 const API='https://api.jamendo.com/v3.0';
 const searchForm=document.querySelector('#searchForm');
 const searchInput=document.querySelector('#searchInput');
