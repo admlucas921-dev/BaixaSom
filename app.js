@@ -1,4 +1,4 @@
-const WHATSAPP='5567997162389';
+const WHATSAPP='5567971623890';
 const money=value=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(value);
 const snacks=[
   ['x-tanto-faz','X-Tanto Faz Montado no Prato',48,'Pão de hambúrguer, alface, tomate, batata palha, milho, hambúrguer, presunto, mussarela, salsicha, ovo, filé mignon, filé de frango, calabresa, bacon, cheddar e catupiry'],
