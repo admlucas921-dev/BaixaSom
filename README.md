@@ -8,4 +8,4 @@ Abra `index.html` no navegador ou use um servidor de arquivos estáticos.
 
 ## WhatsApp
 
-Os pedidos são enviados para `55 67 99716-2389`. O cliente confere a mensagem no WhatsApp antes do envio.
+Os pedidos são enviados para `55 67 97162-3890`. O cliente confere a mensagem no WhatsApp antes do envio.
