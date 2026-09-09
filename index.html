@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0a08">
+  <meta name="description" content="Cardápio online do Rancho Lanches e Pizzas. Monte seu pedido e envie pelo WhatsApp.">
+  <title>Rancho Lanches e Pizzas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <img class="logo" src="assets/logo-rancho.png" alt="Rancho Lanchonete e Pizzaria">
+      <div class="hero-copy">
+        <span class="eyebrow">Cardápio digital</span>
+        <h1>Seu pedido do <em>Rancho</em>, do seu jeito.</h1>
+        <p>Escolha seus favoritos, confira o carrinho e envie o pedido direto pelo WhatsApp.</p>
+        <a class="hero-action" href="#cardapio">Ver cardápio <span>↓</span></a>
+      </div>
+      <div class="hero-stamp"><strong>Feito</strong><span>na hora</span></div>
+    </div>
+  </header>
+
+  <nav class="category-nav" aria-label="Categorias do cardápio">
+    <div class="category-inner">
+      <button class="category active" data-filter="todos">Todos</button>
+      <button class="category" data-filter="lanches">🍔 Lanches</button>
+      <button class="category" data-filter="pizzas">🍕 Pizzas doces</button>
+    </div>
+  </nav>
+
+  <main id="cardapio" class="page">
+    <section class="menu-panel">
+      <div class="section-heading">
+        <div><span>Escolha o seu</span><h2>Cardápio</h2></div>
+        <p><strong id="itemCount">19</strong> opções preparadas para você</p>
+      </div>
+      <div id="menuGrid" class="menu-grid"></div>
+    </section>
+
+    <aside class="cart" id="cart" aria-labelledby="cartTitle">
+      <div class="cart-title">
+        <div><span>Seu pedido</span><h2 id="cartTitle">Carrinho</h2></div>
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
+      <div id="cartEmpty" class="cart-empty">
+        <div class="empty-icon">🛒</div>
+        <strong>Seu carrinho está vazio</strong>
+        <p>Adicione um lanche ou pizza para começar.</p>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div id="cartSummary" class="cart-summary" hidden>
+        <div class="total"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div>
+        <div class="customer-form">
+          <label>Seu nome<input id="customerName" autocomplete="name" placeholder="Como podemos chamar você?"></label>
+          <label>Seu telefone<input id="customerPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(67) 99999-9999" maxlength="15"></label>
+          <label>Observações <textarea id="customerNotes" rows="2" placeholder="Ex.: sem cebola, ponto da carne..."></textarea></label>
+        </div>
+        <p class="form-error" id="formError" role="alert"></p>
+        <button id="sendOrder" class="whatsapp-button"><span>Enviar pedido pelo WhatsApp</span><strong>➜</strong></button>
+        <small>Você poderá conferir a mensagem antes de enviar.</small>
+      </div>
+    </aside>
+  </main>
+
+  <button class="mobile-cart" id="mobileCart" hidden>
+    <span><b id="mobileCartCount">0</b> Ver carrinho</span><strong id="mobileCartTotal">R$ 0,00</strong>
+  </button>
+
+  <div class="modal" id="optionModal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" data-close-modal aria-label="Fechar">×</button>
+      <span class="modal-label">Personalize seu pedido</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <div id="sizeOptions" class="option-group"></div>
+      <div class="option-heading"><strong>Adicionais</strong><span>Opcional</span></div>
+      <div id="extraOptions" class="extra-list"></div>
+      <div class="modal-footer">
+        <div><span>Total do item</span><strong id="modalTotal"></strong></div>
+        <button id="confirmAdd">Adicionar ao carrinho</button>
+      </div>
+    </section>
+  </div>
+
+  <footer><img src="assets/logo-rancho.png" alt=""><p><strong>Rancho Lanches e Pizzas</strong><br>Pedidos: (67) 99716-2389</p><a href="https://wa.me/5567997162389" target="_blank" rel="noopener">Falar no WhatsApp</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
